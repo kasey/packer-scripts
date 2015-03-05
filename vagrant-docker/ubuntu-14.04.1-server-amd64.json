@@ -52,7 +52,7 @@
         ["modifyvm", "{{.Name}}", "--cpus", "2"]
       ],
       "virtualbox_version_file": ".vbox_version"
-    },
+    }
   ],
   "provisioners": [
     {
@@ -64,13 +64,12 @@
     {
       "type": "vagrant",
       "include": ["image.iso"],
-      "vagrantfile_template": "vagrantfile.tpl",
       "output": "whatev_{{.Provider}}.box"
     },
     {
       "type": "vagrant-cloud",
       "box_tag": "kasey/docker-packer",
-      "atlas_token": "{{user `cloud_token`}}",
+      "access_token": "{{user `atlas_token`}}",
       "version": "{{user `version`}}"
     }
   ]
