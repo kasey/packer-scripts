@@ -62,6 +62,12 @@
   ],
   "post-processors": [
     {
+      "type": "vagrant",
+      "include": ["image.iso"],
+      "vagrantfile_template": "vagrantfile.tpl",
+      "output": "whatev_{{.Provider}}.box"
+    },
+    {
       "type": "vagrant-cloud",
       "box_tag": "kasey/docker-packer",
       "atlas_token": "{{user `cloud_token`}}",
